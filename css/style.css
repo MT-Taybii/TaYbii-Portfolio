@@ -183,7 +183,7 @@ button{ font-family:inherit; }
   position:relative;
   height:100vh;
 }
-.page-track.track-slide{ height:220vh; } /* extra scroll distance = slide + hold */
+.page-track.track-slide{ height:180vh; } /* extra scroll distance = slide + hold */
 
 .page-panel{
   position:sticky; top:0;

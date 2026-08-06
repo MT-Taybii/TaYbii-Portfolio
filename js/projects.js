@@ -28,9 +28,22 @@
  *   "Go Live" on that project's own server, separate from this one.
  */
 window.PORTFOLIO_PROJECTS = [
-  null, // box 1
-  null, // box 2
-  null, // box 3
+  {
+    name: 'Github Profile', // shown under the icon, your choice
+    logo: 'assets/toolslogo assets/Github.png', // 48x48-ish PNG, square
+    url:  'https://github.com/MT-Taybii'
+  },
+  {
+    name: 'Netflix Clone',
+    logo: 'assets/toolslogo assets/Netflex Logo.jpg',
+    url:  'https://github.com/MT-Taybii/netflix-clone'
+  },
+  
+  {
+    name: 'Not Netflix Clone',
+    logo: 'assets/ toolslogo assets/Not Netflix Logo.png',
+    url:  'https://github.com/MT-Taybii/NETFLIX'
+  },
   null, // box 4
   null, // box 5
   null, // box 6
