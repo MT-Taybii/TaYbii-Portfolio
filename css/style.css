@@ -291,15 +291,15 @@ button{ font-family:inherit; }
 }
 
 .hero-avatar-wrap{
-  width: clamp(96px, 16vw, 168px);
-  height: clamp(96px, 16vw, 168px);
-  margin-bottom: 28px;
+  width: clamp(0px, 100vw, 129px);
+  height: clamp(2px, 100vw, 180px);
+  margin-bottom: 20px;
   opacity:0;
-  transform: translateY(60px) scale(0.85);
+  transform: translateY(0px) scale(1);
 }
 .hero-avatar-wrap.animate-in{ animation: avatarRise 0.5s cubic-bezier(.22,1,.36,1) forwards; }
 @keyframes avatarRise{
-  0%{ opacity:0; transform: translateY(60px) scale(0.85); }
+  0%{ opacity:0; transform: translateY(0px) scale(1); }
   100%{ opacity:1; transform: translateY(0) scale(1); }
 }
 .hero-avatar{

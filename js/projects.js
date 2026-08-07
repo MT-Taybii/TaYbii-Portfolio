@@ -38,14 +38,21 @@ window.PORTFOLIO_PROJECTS = [
     logo: 'assets/toolslogo assets/Netflex Logo.jpg',
     url:  'https://github.com/MT-Taybii/netflix-clone'
   },
-  
   {
     name: 'Not Netflix Clone',
-    logo: 'assets/ toolslogo assets/Not Netflix Logo.png',
+    logo: 'assets/toolslogo assets/Not Netflix Logo.png',
     url:  'https://github.com/MT-Taybii/NETFLIX'
   },
-  null, // box 4
-  null, // box 5
+  {
+    name: 'POS Machine System',
+    logo: 'assets/toolslogo assets/POS-Machine-System.png',
+    url:  'https://github.com/MT-Taybii/POS-Machine-Project'
+  },
+  {
+    name: 'Lost & Found',
+    logo: 'assets/toolslogo assets/Lost-&-Found.png',
+    url:  'https://github.com/MT-Taybii/Lost-and-Found-Platform'
+  },
   null, // box 6
   null, // box 7
   null, // box 8
