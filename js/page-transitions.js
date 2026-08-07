@@ -15,6 +15,8 @@
  */
 (function () {
   const SLIDE_FRACTION = 0.6; // fraction of the track's scroll range spent sliding, rest is "hold"
+  window.MT_SLIDE_FRACTION = SLIDE_FRACTION; // shared with js/site-nav.js for scroll-to-page targets
+
   const tracks = Array.from(document.querySelectorAll('.page-track.track-slide'));
   if (!tracks.length) return;
 
