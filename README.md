@@ -13,6 +13,7 @@ js/tech-marquee.js            page 3's diagonal marquee loop + zoom-near-center 
 js/page3-background.js        page 3's circuit-board pulse background
 js/album-photos.js            *** the only file you edit to manage the achievements/memories album ***
 js/album-gallery.js           renders the album grid + lightbox + reveal-on-scroll
+js/site-nav.js                navbar/sidebar/footer: scroll-to-page nav, active-link tracking, search
 js/page4-background.js        page 4's radar/scanner background
 js/projects.js                *** the only file you edit to manage the 8 app boxes ***
 js/apps-grid.js               renders the 8 boxes + bubble-evaporate click effect
@@ -129,3 +130,23 @@ whenever.
 
 Background is still the radar sweep from before (unchanged) — say the word
 if you'd like something warmer to match the album's tone instead.
+
+
+## Navbar, sidebar & footer
+- **Navbar**: page links (Home/Projects/Tech Stack/Album) that smooth-scroll
+  to the right point in each page's slide-in, a live search box, the theme
+  toggle, and the view counter — all in one fixed bar with a slow drifting
+  aurora-gradient background (`.topbar-glow` in style.css).
+- **Search**: built automatically from what's already on the site — the 4
+  page names, your project names (`js/projects.js`), every tech-stack logo's
+  label (read straight from page 3's marquee), and every album caption
+  (`js/album-photos.js`). Nothing to maintain separately; add a project or
+  album photo and it's searchable immediately. Selecting a project result
+  also briefly highlights that box on page 2.
+- **Sidebar**: below 860px width the inline nav + search collapse into a
+  hamburger button that slides in a full sidebar (same nav links + search,
+  same animated glow background). Closes via the X, the backdrop, or Escape.
+- **Footer**: page links again, connect links (edit the GitHub/LinkedIn/email
+  URLs directly in `index.html`, they're plain `<a>` tags), and a pair of
+  gently swaying wave shapes behind it — same jelly/water motif as page 1's
+  background, tying the very top and very bottom of the site together.

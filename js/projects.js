@@ -22,13 +22,16 @@
  *        name: 'Weather App',                              // shown under the icon, your choice
  *        logo: 'projects/weather-app/logo.png',             // 48x48-ish PNG, square
  *        url:  'projects/weather-app/index.html',           // or a deployed URL once it's live
+ *        github: 'https://github.com/your-username/weather-app', // optional — adds a small GitHub icon on the box
  *      }
  *
  *   Clicking the box opens `url` in a new tab — exactly like hitting
  *   "Go Live" on that project's own server, separate from this one.
+ *   Clicking the small GitHub icon (only shown if `github` is set) opens
+ *   the repo instead, without triggering the box's launch animation.
  */
 window.PORTFOLIO_PROJECTS = [
-  {
+    {
     name: 'Github Profile', // shown under the icon, your choice
     logo: 'assets/toolslogo assets/Github.png', // 48x48-ish PNG, square
     url:  'https://github.com/MT-Taybii'
@@ -53,6 +56,7 @@ window.PORTFOLIO_PROJECTS = [
     logo: 'assets/toolslogo assets/Lost-&-Found.png',
     url:  'https://github.com/MT-Taybii/Lost-and-Found-Platform'
   },
+
   null, // box 6
   null, // box 7
   null, // box 8

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Muhammad Tayyab — FrontEnd Dev</title>
+<title>MT-Taybii Portfolio</title>
 <meta name="description" content="Portfolio of Muhammad Tayyab, FrontEnd Developer.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,7 +60,25 @@
 
 <!-- ============ GLOBAL CHROME (stays fixed above every page) ============ -->
 <header class="topbar" id="globalTopbar">
-  <div class="logo">MT<span>.</span></div>
+  <span class="topbar-glow" aria-hidden="true"></span>
+
+  <div class="logo">MT-Taybii<span>.</span></div>
+
+  <nav class="nav-links" id="navLinks" aria-label="Page navigation">
+    <button class="nav-link" type="button" data-target="track1">Home</button>
+    <button class="nav-link" type="button" data-target="track2">Projects</button>
+    <button class="nav-link" type="button" data-target="track3">Tech Stack</button>
+    <button class="nav-link" type="button" data-target="track4">Album</button>
+  </nav>
+
+  <div class="nav-search" id="navSearch">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.7"/>
+      <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    </svg>
+    <input type="text" class="search-input" id="navSearchInput" placeholder="Search this site…" autocomplete="off" aria-label="Search this site">
+    <div class="search-results" id="navSearchResults" role="listbox" hidden></div>
+  </div>
 
   <div class="topbar-right">
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode" title="Toggle theme">
@@ -80,8 +98,43 @@
       </svg>
       <span class="view-count" id="viewCount">—</span>
     </div>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<!-- ============ SLIDE-IN SIDEBAR (mobile nav + search) ============ -->
+<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <span class="sidebar-glow" aria-hidden="true"></span>
+
+  <div class="sidebar-head">
+    <span class="logo">MT-Taybii<span>.</span></span>
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <nav class="sidebar-nav" aria-label="Page navigation">
+    <button class="sidebar-link" type="button" data-target="track1">Home</button>
+    <button class="sidebar-link" type="button" data-target="track2">Projects</button>
+    <button class="sidebar-link" type="button" data-target="track3">Tech Stack</button>
+    <button class="sidebar-link" type="button" data-target="track4">Album</button>
+  </nav>
+
+  <div class="nav-search sidebar-search" id="sidebarSearch">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.7"/>
+      <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    </svg>
+    <input type="text" class="search-input" id="sidebarSearchInput" placeholder="Search this site…" autocomplete="off" aria-label="Search this site">
+    <div class="search-results" id="sidebarSearchResults" role="listbox" hidden></div>
+  </div>
+</aside>
 
 <!-- ============ PAGE STACK ============ -->
 <!-- Each .page-track sets how much scroll distance a page "owns".
@@ -120,7 +173,7 @@
 
       <main class="hero">
         <div class="hero-avatar-wrap">
-          <img src="assets/Tayyab Assets/Tayyab.png" alt="Muhammad Tayyab" class="hero-avatar" id="heroAvatar">
+          <img src="Assets/Tayyab Assets/Tayyab.png" alt="Muhammad Tayyab" class="hero-avatar" id="heroAvatar">
         </div>
 
         <p class="eyebrow" id="eyebrowText" data-text="FrontEnd Dev"></p>
@@ -169,22 +222,22 @@
           <div class="marquee marquee--diagonal" data-anim="forward">
             <div class="marquee__track">
               <!-- duplicated automatically by js/tech-marquee.js for a seamless loop -->
-              <div class="marquee__item"><img src="assets/tech/HTML.png" alt="HTML"></div>
-              <div class="marquee__item"><img src="assets/tech/CSS.png" alt="CSS"></div>
-              <div class="marquee__item"><img src="assets/tech/JavaScript.png" alt="JavaScript"></div>
-              <div class="marquee__item"><img src="assets/tech/MongoDB.png" alt="MongoDB"></div>
-              <div class="marquee__item"><img src="assets/tech/Express JS.png" alt="Express.js"></div>
-              <div class="marquee__item"><img src="assets/tech/React JS.png" alt="React.js"></div>
-              <div class="marquee__item"><img src="assets/tech/Node JS.png" alt="Node.js"></div>
+              <div class="marquee__item"><img src="Assets/toolslogo Assets/HTML.png" alt="HTML"></div>
+              <div class="marquee__item"><img src="Assets/toolslogo Assets/CSS.png" alt="CSS"></div>
+              <div class="marquee__item"><img src="Assets/toolslogo Assets/JavaScript.png" alt="JavaScript"></div>
+              <div class="marquee__item"><img src="Assets/toolslogo Assets/MongoDB.png" alt="MongoDB"></div>
+              <div class="marquee__item"><img src="Assets/toolslogo Assets/Express JS.png" alt="Express.js"></div>
+              <div class="marquee__item"><img src="Assets/toolslogo Assets/React JS.png" alt="React.js"></div>
+              <div class="marquee__item"><img src="Assets/toolslogo Assets/Node JS.png" alt="Node.js"></div>
             </div>
           </div>
 
           <div class="marquee marquee--diagonal marquee--reverse" data-anim="reverse">
             <div class="marquee__track">
-              <div class="marquee__item"><img src="assets/tech/Git.png" alt="Git"></div>
-              <div class="marquee__item"><img src="assets/tech/Github.png" alt="GitHub"></div>
-              <div class="marquee__item"><img src="assets/tech/Python.png" alt="Python"></div>
-              <div class="marquee__item"><img src="assets/tech/C++.png" alt="C++"></div>
+              <div class="marquee__item"><img src="Assets/toolslogo Assets/Git.png" alt="Git"></div>
+              <div class="marquee__item"><img src="Assets/toolslogo Assets/GitHub.png" alt="GitHub"></div>
+              <div class="marquee__item"><img src="Assets/toolslogo Assets/Python.png" alt="Python"></div>
+              <div class="marquee__item"><img src="Assets/toolslogo Assets/C++.png" alt="C++"></div>
             </div>
           </div>
 
@@ -226,6 +279,45 @@
 
 </div>
 
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer" id="siteFooter">
+  <div class="footer-waves" aria-hidden="true">
+    <svg class="wave wave--back" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,40 C 200,90 400,0 600,40 C 800,80 1000,10 1200,50 L1200,120 L0,120 Z"></path>
+    </svg>
+    <svg class="wave wave--front" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,60 C 220,10 420,100 620,55 C 820,15 1000,90 1200,45 L1200,120 L0,120 Z"></path>
+    </svg>
+  </div>
+
+  <div class="footer-inner">
+    <div class="footer-col footer-brand">
+      <div class="logo">MT<span>.</span></div>
+      <p>FrontEnd Developer building fast, interactive interfaces — this whole site is one live demo, not a mockup.</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Pages</h3>
+      <button class="footer-link" type="button" data-target="track1">Home</button>
+      <button class="footer-link" type="button" data-target="track2">Projects</button>
+      <button class="footer-link" type="button" data-target="track3">Tech Stack</button>
+      <button class="footer-link" type="button" data-target="track4">Album</button>
+    </div>
+
+    <div class="footer-col">
+      <h3>Connect</h3>
+      <!-- edit these three links whenever you like -->
+      <a class="footer-link" href="https://github.com/MT-Taybii" target="_blank" rel="noopener">GitHub</a>
+      <a class="footer-link" href="https://www.linkedin.com/in/MT_Taybii" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="footer-link" href="mailto:mt.taybii@gmail.com">Email</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© <span id="footerYear"></span> Muhammad Tayyab. All rights reserved.</span>
+  </div>
+</footer>
+
 <script src="js/jelly-background.js"></script>
 <script src="js/projects.js"></script>
 <script src="js/apps-grid.js"></script>
@@ -236,13 +328,10 @@
 <script src="js/album-photos.js"></script>
 <script src="js/album-gallery.js"></script>
 <script src="js/page-transitions.js"></script>
+<script src="js/site-nav.js"></script>
+<script src="js/server.js"></script>
 <script src="js/theme.js"></script>
 <script src="js/script.js"></script>
-<script src="js/album-gallery.js"></script>
-<script src="js/album-photos.js"></script>
-<script src="js/tech-marquee.js"></script>
-<script src="js/search.js"></script>
-<script src="js/server.js"></script>
-
+<script src="js/research-profile.js"></script>
 </body>
 </html>
