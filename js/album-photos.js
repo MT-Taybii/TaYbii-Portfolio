@@ -4,11 +4,11 @@
  * the grid and lightbox pick up any number of them automatically.
  */
 window.ALBUM_PHOTOS = [
-  { src: 'assets/tayyab assets/3.jpeg', 
+  { src: 'Assets/Tayyab Assets/3.jpeg', 
     caption: 'Presentation at university' },
-  { src: 'assets/tayyab assets/4.jpeg', caption: 'Conference talk' },
-  { src: 'assets/tayyab assets/waiting.gif', caption: 'Award ceremony' },
-  { src: 'assets/tayyab assets/celebration.jpg', caption: 'Celebrating a launch' },
-  { src: 'assets/tayyab assets/image.png', caption: 'Team day out' },
-  { src: 'assets/tayyab assets/waiting.gif', caption: 'Graduation day' },
+  { src: 'Assets/Tayyab Assets/4.jpeg', caption: 'Conference talk' },
+  { src: 'Assets/Tayyab Assets/Waiting.gif', caption: 'Award ceremony' },
+  { src: 'Assets/Tayyab Assets/Celebration.jpg', caption: 'Celebrating a launch' },
+  { src: 'Assets/Tayyab Assets/image.png', caption: 'Team day out' },
+  { src: 'Assets/Tayyab Assets/Waiting.gif', caption: 'Graduation day' },
 ];
