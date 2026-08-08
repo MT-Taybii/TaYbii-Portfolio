@@ -26,27 +26,27 @@
 window.PORTFOLIO_PROJECTS = [
     {
     name: 'Github Profile', // shown under the icon, your choice
-    logo: 'assets/toolslogo assets/Github.png', // 48x48-ish PNG, square
+    logo: 'Assets/toolslogo Assets/Github.png', // 48x48-ish PNG, square
     url:  'https://github.com/MT-Taybii'
   },
   {
     name: 'Netflix Clone',
-    logo: 'assets/toolslogo assets/Netflex Logo.jpg',
+    logo: 'Assets/toolslogo Assets/Netflex Logo.jpg',
     url:  'https://github.com/MT-Taybii/netflix-clone'
   },
   {
     name: 'Not Netflix Clone',
-    logo: 'assets/toolslogo assets/Not Netflix Logo.png',
+    logo: 'Assets/toolslogo Assets/Not Netflix Logo.png',
     url:  'https://github.com/MT-Taybii/NETFLIX'
   },
   {
     name: 'POS Machine System',
-    logo: 'assets/toolslogo assets/POS-Machine-System.png',
+    logo: 'Assets/toolslogo Assets/POS-Machine-System.png',
     url:  'https://github.com/MT-Taybii/POS-Machine-Project'
   },
   {
     name: 'Lost & Found',
-    logo: 'assets/toolslogo assets/Lost-&-Found.png',
+    logo: 'Assets/toolslogo Assets/Lost-&-Found.png',
     url:  'https://github.com/MT-Taybii/Lost-and-Found-Platform'
   },
 
