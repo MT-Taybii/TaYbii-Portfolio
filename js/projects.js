@@ -26,7 +26,7 @@
 window.PORTFOLIO_PROJECTS = [
     {
     name: 'Github Profile', // shown under the icon, your choice
-    logo: 'Assets/toolslogo Assets/Github.png', // 48x48-ish PNG, square
+    logo: 'Assets/toolslogo Assets/GitHub.png', // 48x48-ish PNG, square
     url:  'https://github.com/MT-Taybii'
   },
   {
