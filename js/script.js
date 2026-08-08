@@ -1,14 +1,14 @@
 /**
- * =====================================================================
+ * 
  * CONFIG — edit this once your backend (server/) is deployed.
  * Leave as '' to run purely on the localStorage fallback (no server).
- * =====================================================================
+ 
  */
-const API_BASE = ''; // e.g. 'https://your-backend.onrender.com'
+const API_BASE = "https://mt-taybii-api.onrender.com";
 
-/* ---------------------------------------------------------------
+/* 
    Split text into per-character spans for the reveal animation
---------------------------------------------------------------- */
+ */
 function splitToChars(el) {
   const text = el.dataset.text || el.textContent;
   el.textContent = '';
@@ -29,10 +29,10 @@ function animateChars(chars, startDelay = 0, stagger = 28) {
   });
 }
 
-/* ---------------------------------------------------------------
+/* 
    View counter — tries the API, falls back to localStorage so the
    page still works before the backend in /server is deployed.
---------------------------------------------------------------- */
+ */
 async function bumpViewCounter() {
   const countEl = document.getElementById('viewCount');
 
@@ -54,7 +54,7 @@ async function bumpViewCounter() {
     }
   }
 
-  // ---- localStorage fallback (per-browser, not global) ----
+  //  localStorage fallback (per-browser, not global) 
   let views = parseInt(localStorage.getItem('mt_portfolio_views') || '0', 10);
   if (!alreadyCountedThisSession) {
     views += 1;
@@ -72,14 +72,14 @@ function renderCount(el, value) {
   el.classList.add('tick');
 }
 
-/* ---------------------------------------------------------------
+/* 
    Master sequence:
    1) 3s loader (progress ring driven purely by CSS animation)
    2) "pro" panel-wipe transition (~0.85s)
    3) reveal main site
    4) within 0.5s: avatar rises + name/eyebrow characters animate in
    5) bump the view counter
---------------------------------------------------------------- */
+ */
 window.addEventListener('DOMContentLoaded', () => {
   const loader = document.getElementById('loader');
   const percentEl = document.getElementById('loaderPercent');
