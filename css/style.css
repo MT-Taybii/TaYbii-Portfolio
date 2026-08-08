@@ -1229,7 +1229,7 @@ button {
   position: relative;
   width: 130%;
   margin-left: -15%;
-  height: clamp(64px, 11vh, 120px);
+  height: clamp(204px, 11vh, 120px);
   overflow: hidden;
   transform: rotate(-9deg);
   -webkit-mask-image: linear-gradient(
