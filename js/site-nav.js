@@ -118,11 +118,11 @@
     if (e.key === 'Escape' && sidebar?.classList.contains('open')) closeSidebar();
   });
 
-  /* ==================================================================
+  /* 
      4) SEARCH — built from live site data, no separate content file to
         keep in sync: pages are static, everything else is read from
         what the other scripts already rendered/exposed.
-     ================================================================== */
+      */
   function buildSearchIndex() {
     const index = PAGES.map((p) => ({ label: p.label, sub: 'Page', trackId: p.id }));
 
@@ -228,9 +228,9 @@
   wireSearch(document.getElementById('navSearchInput'), document.getElementById('navSearchResults'));
   wireSearch(document.getElementById('sidebarSearchInput'), document.getElementById('sidebarSearchResults'));
 
-  /* ==================================================================
+  /* 
      5) FOOTER YEAR
-     ================================================================== */
+      */
   const yearEl = document.getElementById('footerYear');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();
