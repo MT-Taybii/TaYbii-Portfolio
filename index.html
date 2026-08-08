@@ -1,337 +1,683 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>MT-Taybii Portfolio</title>
-<meta name="description" content="Portfolio of Muhammad Tayyab, FrontEnd Developer.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>MT-Taybii Portfolio</title>
+    <link rel="icon" href="Assets/toolslogo Assets/Web logo.png" type="image/png" />
+    <meta
+      name="description"
+      content="Portfolio of Muhammad Tayyab, FrontEnd Developer."
+    />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-<!-- Set theme before paint to avoid a flash of the wrong theme -->
-<script>
-  (function () {
-    var saved = localStorage.getItem('mt_theme');
-    var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-    document.documentElement.setAttribute('data-theme', theme);
-  })();
-</script>
+    <!-- Set theme before paint to avoid a flash of the wrong theme -->
+    <script>
+      (function () {
+        var saved = localStorage.getItem("mt_theme");
+        var theme =
+          saved ||
+          (window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+      (() => {
+        // Disable right-click context menu
+        document.addEventListener("contextmenu", (e) => e.preventDefault());
 
-<link rel="stylesheet" href="css/style.css">
-<noscript>
-  <style>
-    #loader, #transition { display:none !important; }
-    #page1 { opacity:1 !important; }
-    .char, .hero-avatar-wrap, .tagline, .scroll-cue, .view-counter { opacity:1 !important; transform:none !important; filter:none !important; animation:none !important; }
-    .eyebrow::before { content: attr(data-text); }
-    .name::before { content: attr(data-text); }
-    .page-panel { position:relative !important; transform:none !important; }
-    .page-track.track-slide { height:auto !important; }
-    .album-card { opacity:1 !important; transform:none !important; }
-  </style>
-</noscript>
-</head>
-<body>
+        // Block common DevTools shortcuts
+        document.addEventListener("keydown", (e) => {
+          // F12
+          if (e.key === "F12") {
+            e.preventDefault();
+            return false;
+          }
 
-<!-- ============ LOADING SCREEN ============ -->
-<div id="loader" aria-hidden="false">
-  <div class="loader-inner">
-    <div class="loader-ring">
-      <svg viewBox="0 0 120 120" class="loader-svg">
-        <circle cx="60" cy="60" r="52" class="loader-track"></circle>
-        <circle cx="60" cy="60" r="52" class="loader-progress"></circle>
-      </svg>
-      <span class="loader-percent" id="loaderPercent">0%</span>
+          // Ctrl + Shift + I / J
+          if (
+            e.ctrlKey &&
+            e.shiftKey &&
+            (e.key.toLowerCase() === "i" || e.key.toLowerCase() === "j")
+          ) {
+            e.preventDefault();
+            return false;
+          }
+
+          // Ctrl + U (View Source)
+          if (e.ctrlKey && e.key.toLowerCase() === "u") {
+            e.preventDefault();
+            return false;
+          }
+
+          // Ctrl + Shift + C (Inspect element)
+          if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "c") {
+            e.preventDefault();
+            return false;
+          }
+        });
+
+        // Basic DevTools detection
+        const threshold = 160;
+
+        setInterval(() => {
+          const widthDiff = window.outerWidth - window.innerWidth;
+          const heightDiff = window.outerHeight - window.innerHeight;
+
+          if (widthDiff > threshold || heightDiff > threshold) {
+            document.body.innerHTML = `
+        <div style="
+          min-height:100vh;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          background:#0a0a0a;
+          color:white;
+          font-family:Arial,sans-serif;
+          text-align:center;
+        ">
+          <div>
+            <h1>Developer Tools Detected</h1>
+            <p>Please close Developer Tools to continue.</p>
+          </div>
+        </div>
+      `;
+          }
+        }, 1000);
+      })();
+    </script>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <noscript>
+      <style>
+        #loader,
+        #transition {
+          display: none !important;
+        }
+        #page1 {
+          opacity: 1 !important;
+        }
+        .char,
+        .hero-avatar-wrap,
+        .tagline,
+        .scroll-cue,
+        .view-counter {
+          opacity: 1 !important;
+          transform: none !important;
+          filter: none !important;
+          animation: none !important;
+        }
+        .eyebrow::before {
+          content: attr(data-text);
+        }
+        .name::before {
+          content: attr(data-text);
+        }
+        .page-panel {
+          position: relative !important;
+          transform: none !important;
+        }
+        .page-track.track-slide {
+          height: auto !important;
+        }
+        .album-card {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
+  </head>
+  <body>
+    <!-- LOADING SCREEN -->
+    <div id="loader" aria-hidden="false">
+      <div class="loader-inner">
+        <div class="loader-ring">
+          <svg viewBox="0 0 120 120" class="loader-svg">
+            <circle cx="60" cy="60" r="52" class="loader-track"></circle>
+            <circle cx="60" cy="60" r="52" class="loader-progress"></circle>
+          </svg>
+          <span class="loader-percent" id="loaderPercent">0%</span>
+        </div>
+        <p class="loader-label">
+          Loading<span class="dots"
+            ><span>.</span><span>.</span><span>.</span></span
+          >
+        </p>
+      </div>
     </div>
-    <p class="loader-label">Loading<span class="dots"><span>.</span><span>.</span><span>.</span></span></p>
-  </div>
-</div>
 
-<!-- ============ TRANSITION WIPE (the "pro level" animation) ============ -->
-<div id="transition" aria-hidden="true">
-  <span class="wipe-panel" style="--i:0"></span>
-  <span class="wipe-panel" style="--i:1"></span>
-  <span class="wipe-panel" style="--i:2"></span>
-  <span class="wipe-panel" style="--i:3"></span>
-  <span class="wipe-panel" style="--i:4"></span>
-</div>
-
-<!-- ============ GLOBAL CHROME (stays fixed above every page) ============ -->
-<header class="topbar" id="globalTopbar">
-  <span class="topbar-glow" aria-hidden="true"></span>
-
-  <div class="logo">MT-Taybii<span>.</span></div>
-
-  <nav class="nav-links" id="navLinks" aria-label="Page navigation">
-    <button class="nav-link" type="button" data-target="track1">Home</button>
-    <button class="nav-link" type="button" data-target="track2">Projects</button>
-    <button class="nav-link" type="button" data-target="track3">Tech Stack</button>
-    <button class="nav-link" type="button" data-target="track4">Album</button>
-  </nav>
-
-  <div class="nav-search" id="navSearch">
-    <svg class="search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.7"/>
-      <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-    </svg>
-    <input type="text" class="search-input" id="navSearchInput" placeholder="Search this site…" autocomplete="off" aria-label="Search this site">
-    <div class="search-results" id="navSearchResults" role="listbox" hidden></div>
-  </div>
-
-  <div class="topbar-right">
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode" title="Toggle theme">
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/>
-        <path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-      </svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a7 7 0 0 0 11 11Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-      </svg>
-    </button>
-
-    <div class="view-counter" id="viewCounter" title="Portfolio views">
-      <svg class="eye-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1.5 12S5 5 12 5s10.5 7 10.5 7-3.5 7-10.5 7S1.5 12 1.5 12Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-        <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.6"/>
-      </svg>
-      <span class="view-count" id="viewCount">—</span>
+    <!-- TRANSITION WIPE (the "pro level" animation) -->
+    <div id="transition" aria-hidden="true">
+      <span class="wipe-panel" style="--i: 0"></span>
+      <span class="wipe-panel" style="--i: 1"></span>
+      <span class="wipe-panel" style="--i: 2"></span>
+      <span class="wipe-panel" style="--i: 3"></span>
+      <span class="wipe-panel" style="--i: 4"></span>
     </div>
 
-    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
+    <!-- GLOBAL CHROME (stays fixed above every page) -->
+    <header class="topbar" id="globalTopbar">
+      <span class="topbar-glow" aria-hidden="true"></span>
 
-<!-- ============ SLIDE-IN SIDEBAR (mobile nav + search) ============ -->
-<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
-<aside class="sidebar" id="sidebar" aria-hidden="true">
-  <span class="sidebar-glow" aria-hidden="true"></span>
+      <div class="logo">MT-Taybii<span>.</span></div>
 
-  <div class="sidebar-head">
-    <span class="logo">MT-Taybii<span>.</span></span>
-    <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
-    </button>
-  </div>
+      <nav class="nav-links" id="navLinks" aria-label="Page navigation">
+        <button class="nav-link" type="button" data-target="track1">
+          Home
+        </button>
+        <button class="nav-link" type="button" data-target="track2">
+          Projects
+        </button>
+        <button class="nav-link" type="button" data-target="track3">
+          Tech Stack
+        </button>
+        <button class="nav-link" type="button" data-target="track4">
+          Album
+        </button>
+      </nav>
 
-  <nav class="sidebar-nav" aria-label="Page navigation">
-    <button class="sidebar-link" type="button" data-target="track1">Home</button>
-    <button class="sidebar-link" type="button" data-target="track2">Projects</button>
-    <button class="sidebar-link" type="button" data-target="track3">Tech Stack</button>
-    <button class="sidebar-link" type="button" data-target="track4">Album</button>
-  </nav>
+      <div class="nav-search" id="navSearch">
+        <svg
+          class="search-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <circle
+            cx="11"
+            cy="11"
+            r="7"
+            stroke="currentColor"
+            stroke-width="1.7"
+          />
+          <path
+            d="M21 21l-4.3-4.3"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+          />
+        </svg>
+        <input
+          type="text"
+          class="search-input"
+          id="navSearchInput"
+          placeholder="Search this site…"
+          autocomplete="off"
+          aria-label="Search this site"
+        />
+        <div
+          class="search-results"
+          id="navSearchResults"
+          role="listbox"
+          hidden
+        ></div>
+      </div>
 
-  <div class="nav-search sidebar-search" id="sidebarSearch">
-    <svg class="search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.7"/>
-      <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-    </svg>
-    <input type="text" class="search-input" id="sidebarSearchInput" placeholder="Search this site…" autocomplete="off" aria-label="Search this site">
-    <div class="search-results" id="sidebarSearchResults" role="listbox" hidden></div>
-  </div>
-</aside>
+      <div class="topbar-right">
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Toggle light and dark mode"
+          title="Toggle theme"
+        >
+          <svg
+            class="icon-sun"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="4.2"
+              stroke="currentColor"
+              stroke-width="1.6"
+            />
+            <path
+              d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <svg
+            class="icon-moon"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a7 7 0 0 0 11 11Z"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
 
-<!-- ============ PAGE STACK ============ -->
-<!-- Each .page-track sets how much scroll distance a page "owns".
+        <div class="view-counter" id="viewCounter" title="Portfolio views">
+          <svg
+            class="eye-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1.5 12S5 5 12 5s10.5 7 10.5 7-3.5 7-10.5 7S1.5 12 1.5 12Z"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linejoin="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              r="3.2"
+              stroke="currentColor"
+              stroke-width="1.6"
+            />
+          </svg>
+          <span class="view-count" id="viewCount">—</span>
+        </div>
+
+        <button
+          class="hamburger"
+          id="hamburgerBtn"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="sidebar"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- SLIDE-IN SIDEBAR (mobile nav + search) -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+    <aside class="sidebar" id="sidebar" aria-hidden="true">
+      <span class="sidebar-glow" aria-hidden="true"></span>
+
+      <div class="sidebar-head">
+        <span class="logo">MT-Taybii<span>.</span></span>
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 6l12 12M18 6L6 18"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Page navigation">
+        <button class="sidebar-link" type="button" data-target="track1">
+          Home
+        </button>
+        <button class="sidebar-link" type="button" data-target="track2">
+          Projects
+        </button>
+        <button class="sidebar-link" type="button" data-target="track3">
+          Tech Stack
+        </button>
+        <button class="sidebar-link" type="button" data-target="track4">
+          Album
+        </button>
+      </nav>
+
+      <div class="nav-search sidebar-search" id="sidebarSearch">
+        <svg
+          class="search-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <circle
+            cx="11"
+            cy="11"
+            r="7"
+            stroke="currentColor"
+            stroke-width="1.7"
+          />
+          <path
+            d="M21 21l-4.3-4.3"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+          />
+        </svg>
+        <input
+          type="text"
+          class="search-input"
+          id="sidebarSearchInput"
+          placeholder="Search this site…"
+          autocomplete="off"
+          aria-label="Search this site"
+        />
+        <div
+          class="search-results"
+          id="sidebarSearchResults"
+          role="listbox"
+          hidden
+        ></div>
+      </div>
+    </aside>
+
+    <!-- PAGE STACK -->
+    <!-- Each .page-track sets how much scroll distance a page "owns".
      Its child .page-panel is position:sticky, so as you scroll, later
      pages (higher in DOM order = later panels) slide over earlier ones,
      like a stack of real paper pages. Add more .page-track blocks the
      same way to extend this to page 3, 4, etc. -->
-<div class="pages-stack" id="pagesStack">
-
-  <!-- ---------- PAGE 1 : hero ---------- -->
-  <section class="page-track" id="track1">
-    <div class="page-panel" id="page1" data-page="1">
-
-      <svg class="goo-defs" width="0" height="0">
-        <defs>
-          <filter id="goo">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="18" result="blur" />
-            <feColorMatrix in="blur" mode="matrix"
-              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 24 -10"
-              result="goo" />
-            <feBlend in="SourceGraphic" in2="goo" />
-          </filter>
-        </defs>
-      </svg>
-
-      <div class="jelly-field" id="jellyField">
-        <div class="blob blob--tilde"  data-viscosity="0.14"></div>
-        <div class="blob blob--bars"   data-viscosity="0.05"></div>
-        <div class="blob blob--back"   data-viscosity="0.09"></div>
-        <div class="blob blob--fwd"    data-viscosity="0.12"></div>
-        <div class="blob blob--equal"  data-viscosity="0.06"></div>
-        <div class="blob blob--core"   data-viscosity="0.035"></div>
-      </div>
-
-      <div class="light-follow" id="lightFollow" aria-hidden="true"></div>
-
-      <main class="hero">
-        <div class="hero-avatar-wrap">
-          <img src="Assets/Tayyab Assets/Tayyab.png" alt="Muhammad Tayyab" class="hero-avatar" id="heroAvatar">
-        </div>
-
-        <p class="eyebrow" id="eyebrowText" data-text="FrontEnd Dev"></p>
-        <h1 class="name" id="nameText" data-text="Muhammad Tayyab"></h1>
-
-        <p class="tagline">I build fast, interactive interfaces — this page is a live demo, not a mockup.</p>
-
-        <a href="#page2" class="scroll-cue" aria-label="Scroll to work">
-          <span></span>
-        </a>
-      </main>
-
-    </div>
-  </section>
-
-  <!-- ---------- PAGE 2 : work / app launcher ---------- -->
-  <section class="page-track track-slide" id="track2">
-    <div class="page-panel" id="page2" data-page="2">
-
-      <canvas class="page2-bg" id="page2Bg" aria-hidden="true"></canvas>
-
-      <main class="work">
-        <p class="eyebrow work-eyebrow">Work</p>
-        <h2 class="work-title">Projects</h2>
-        <p class="work-sub">Each icon below is its own project full stack, its own repo, its own logo. Click to launch it.</p>
-
-        <div class="apps-grid" id="appsGrid" role="list">
-          <!-- 8 app boxes are rendered here by js/apps-grid.js from js/projects.js -->
-        </div>
-      </main>
-
-    </div>
-  </section>
-
-  <section class="page-track track-slide" id="track3">
-    <div class="page-panel" id="page3" data-page="3">
-
-      <canvas class="page3-bg" id="page3Bg" aria-hidden="true"></canvas>
-
-      <main class="stack">
-        <p class="eyebrow stack-eyebrow">Toolbox</p>
-        <h2 class="stack-title">Tech Stack</h2>
-
-        <div class="marquee-group" id="marqueeGroup">
-
-          <div class="marquee marquee--diagonal" data-anim="forward">
-            <div class="marquee__track">
-              <!-- duplicated automatically by js/tech-marquee.js for a seamless loop -->
-              <div class="marquee__item"><img src="Assets/toolslogo Assets/HTML.png" alt="HTML"></div>
-              <div class="marquee__item"><img src="Assets/toolslogo Assets/CSS.png" alt="CSS"></div>
-              <div class="marquee__item"><img src="Assets/toolslogo Assets/JavaScript.png" alt="JavaScript"></div>
-              <div class="marquee__item"><img src="Assets/toolslogo Assets/MongoDB.png" alt="MongoDB"></div>
-              <div class="marquee__item"><img src="Assets/toolslogo Assets/Express JS.png" alt="Express.js"></div>
-              <div class="marquee__item"><img src="Assets/toolslogo Assets/React JS.png" alt="React.js"></div>
-              <div class="marquee__item"><img src="Assets/toolslogo Assets/Node JS.png" alt="Node.js"></div>
-            </div>
-          </div>
-
-          <div class="marquee marquee--diagonal marquee--reverse" data-anim="reverse">
-            <div class="marquee__track">
-              <div class="marquee__item"><img src="Assets/toolslogo Assets/Git.png" alt="Git"></div>
-              <div class="marquee__item"><img src="Assets/toolslogo Assets/GitHub.png" alt="GitHub"></div>
-              <div class="marquee__item"><img src="Assets/toolslogo Assets/Python.png" alt="Python"></div>
-              <div class="marquee__item"><img src="Assets/toolslogo Assets/C++.png" alt="C++"></div>
-            </div>
-          </div>
-
-        </div>
-      </main>
-
-    </div>
-  </section>
-
-  <section class="page-track track-slide" id="track4">
-    <div class="page-panel" id="page4" data-page="4">
-
-      <canvas class="page4-bg" id="page4Bg" aria-hidden="true"></canvas>
-
-      <main class="album">
-        <p class="eyebrow album-eyebrow">Moments</p>
-        <h2 class="album-title">Achievements &amp; Memories</h2>
-        <p class="album-sub">Presentations, wins, and a few good times along the way.</p>
-
-        <div class="album-grid" id="albumGrid" role="list">
-          <!-- rendered by js/album-gallery.js from js/album-photos.js -->
-        </div>
-      </main>
-
-      <div class="lightbox" id="lightbox" aria-hidden="true">
-        <button class="lightbox-close" id="lightboxClose" aria-label="Close">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    <div class="pages-stack" id="pagesStack">
+      <!-- PAGE 1 : hero -->
+      <section class="page-track" id="track1">
+        <div class="page-panel" id="page1" data-page="1">
+          <svg class="goo-defs" width="0" height="0">
+            <defs>
+              <filter id="goo">
+                <feGaussianBlur
+                  in="SourceGraphic"
+                  stdDeviation="18"
+                  result="blur"
+                />
+                <feColorMatrix
+                  in="blur"
+                  mode="matrix"
+                  values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 24 -10"
+                  result="goo"
+                />
+                <feBlend in="SourceGraphic" in2="goo" />
+              </filter>
+            </defs>
           </svg>
-        </button>
-        <figure class="lightbox-figure">
-          <img id="lightboxImg" src="" alt="">
-          <figcaption id="lightboxCaption"></figcaption>
-        </figure>
+
+          <div class="jelly-field" id="jellyField">
+            <div class="blob blob--tilde" data-viscosity="0.14"></div>
+            <div class="blob blob--bars" data-viscosity="0.05"></div>
+            <div class="blob blob--back" data-viscosity="0.09"></div>
+            <div class="blob blob--fwd" data-viscosity="0.12"></div>
+            <div class="blob blob--equal" data-viscosity="0.06"></div>
+            <div class="blob blob--core" data-viscosity="0.035"></div>
+          </div>
+
+          <div class="light-follow" id="lightFollow" aria-hidden="true"></div>
+
+          <main class="hero">
+            <div class="hero-avatar-wrap">
+              <img
+                src="Assets/Tayyab Assets/Tayyab.png"
+                alt="Muhammad Tayyab"
+                class="hero-avatar"
+                id="heroAvatar"
+              />
+            </div>
+
+            <p class="eyebrow" id="eyebrowText" data-text="FrontEnd Dev"></p>
+            <h1 class="name" id="nameText" data-text="Muhammad Tayyab"></h1>
+
+            <p class="tagline">
+              I build fast, interactive interfaces this page is a live demo,
+              not a mockup.
+            </p>
+
+            <a href="#page2" class="scroll-cue" aria-label="Scroll to work">
+              <span></span>
+            </a>
+          </main>
+        </div>
+      </section>
+
+      <!-- PAGE 2 : work / app launcher -->
+      <section class="page-track track-slide" id="track2">
+        <div class="page-panel" id="page2" data-page="2">
+          <canvas class="page2-bg" id="page2Bg" aria-hidden="true"></canvas>
+
+          <main class="work">
+            <p class="eyebrow work-eyebrow">Work</p>
+            <h2 class="work-title">Projects</h2>
+            <p class="work-sub">
+              Each icon below is its own project full stack, its own repo, its
+              own logo. Click to launch it.
+            </p>
+
+            <div class="apps-grid" id="appsGrid" role="list">
+              <!-- 8 app boxes are rendered here by js/apps-grid.js from js/projects.js -->
+            </div>
+          </main>
+        </div>
+      </section>
+
+      <section class="page-track track-slide" id="track3">
+        <div class="page-panel" id="page3" data-page="3">
+          <canvas class="page3-bg" id="page3Bg" aria-hidden="true"></canvas>
+
+          <main class="stack">
+            <p class="eyebrow stack-eyebrow">Toolbox</p>
+            <h2 class="stack-title">Tech Stack</h2>
+
+            <div class="marquee-group" id="marqueeGroup">
+              <div class="marquee marquee--diagonal" data-anim="forward">
+                <div class="marquee__track">
+                  <!-- duplicated automatically by js/tech-marquee.js for a seamless loop -->
+                  <div class="marquee__item">
+                    <img src="Assets/toolslogo Assets/HTML.png" alt="HTML" />
+                  </div>
+                  <div class="marquee__item">
+                    <img src="Assets/toolslogo Assets/CSS.png" alt="CSS" />
+                  </div>
+                  <div class="marquee__item">
+                    <img
+                      src="Assets/toolslogo Assets/JavaScript.png"
+                      alt="JavaScript"
+                    />
+                  </div>
+                  <div class="marquee__item">
+                    <img
+                      src="Assets/toolslogo Assets/MongoDB.png"
+                      alt="MongoDB"
+                    />
+                  </div>
+                  <div class="marquee__item">
+                    <img
+                      src="Assets/toolslogo Assets/Express JS.png"
+                      alt="Express.js"
+                    />
+                  </div>
+                  <div class="marquee__item">
+                    <img
+                      src="Assets/toolslogo Assets/React JS.png"
+                      alt="React.js"
+                    />
+                  </div>
+                  <div class="marquee__item">
+                    <img
+                      src="Assets/toolslogo Assets/Node JS.png"
+                      alt="Node.js"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="marquee marquee--diagonal marquee--reverse"
+                data-anim="reverse"
+              >
+                <div class="marquee__track">
+                  <div class="marquee__item">
+                    <img src="Assets/toolslogo Assets/Git.png" alt="Git" />
+                  </div>
+                  <div class="marquee__item">
+                    <img
+                      src="Assets/toolslogo Assets/GitHub.png"
+                      alt="GitHub"
+                    />
+                  </div>
+                  <div class="marquee__item">
+                    <img
+                      src="Assets/toolslogo Assets/Python.png"
+                      alt="Python"
+                    />
+                  </div>
+                  <div class="marquee__item">
+                    <img src="Assets/toolslogo Assets/C++.png" alt="C++" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </section>
+
+      <section class="page-track track-slide" id="track4">
+        <div class="page-panel" id="page4" data-page="4">
+          <canvas class="page4-bg" id="page4Bg" aria-hidden="true"></canvas>
+
+          <main class="album">
+            <p class="eyebrow album-eyebrow">Moments</p>
+            <h2 class="album-title">Achievements &amp; Memories</h2>
+            <p class="album-sub">
+              Presentations, wins, and a few good times along the way.
+            </p>
+
+            <div class="album-grid" id="albumGrid" role="list">
+              <!-- rendered by js/album-gallery.js from js/album-photos.js -->
+            </div>
+          </main>
+
+          <div class="lightbox" id="lightbox" aria-hidden="true">
+            <button
+              class="lightbox-close"
+              id="lightboxClose"
+              aria-label="Close"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 6l12 12M18 6L6 18"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+            <figure class="lightbox-figure">
+              <img id="lightboxImg" src="" alt="" />
+              <figcaption id="lightboxCaption"></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <footer class="site-footer" id="siteFooter">
+      <div class="footer-inner">
+        <div class="footer-col footer-brand">
+          <div class="logo">MT-Taybii<span>.</span></div>
+          <p>
+            FrontEnd Developer building fast, interactive interfaces this whole
+            site is one live demo, not a mockup.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Pages</h3>
+          <button class="footer-link" type="button" data-target="track1">
+            Home
+          </button>
+          <button class="footer-link" type="button" data-target="track2">
+            Projects
+          </button>
+          <button class="footer-link" type="button" data-target="track3">
+            Tech Stack
+          </button>
+          <button class="footer-link" type="button" data-target="track4">
+            Album
+          </button>
+        </div>
+
+        <div class="footer-col">
+          <h3>Connect</h3>
+          <!-- edit these three links whenever you like -->
+          <a
+            class="footer-link"
+            href="https://github.com/MT-Taybii"
+            target="_blank"
+            rel="noopener"
+            >GitHub</a
+          >
+          <a
+            class="footer-link"
+            href="https://www.linkedin.com/in/MT_Taybii"
+            target="_blank"
+            rel="noopener"
+            >LinkedIn</a
+          >
+          <a class="footer-link" href="mailto:mt.taybii@gmail.com">Email</a>
+        </div>
       </div>
 
-    </div>
-  </section>
+      <div class="footer-bottom">
+        <span
+          >© <span id="footerYear"></span> Muhammad Tayyab. All rights
+          reserved.</span
+        >
+      </div>
+      <div class="footer-waves" aria-hidden="true">
+        <svg
+          class="wave wave--back"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,40 C 200,90 400,0 600,40 C 800,80 1000,10 1200,50 L1200,120 L0,120 Z"
+          ></path>
+        </svg>
+        <svg
+          class="wave wave--front"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,60 C 220,10 420,100 620,55 C 820,15 1000,90 1200,45 L1200,120 L0,120 Z"
+          ></path>
+        </svg>
+      </div>
+    </footer>
 
-</div>
-
-<!-- ============ FOOTER ============ -->
-<footer class="site-footer" id="siteFooter">
-  <div class="footer-waves" aria-hidden="true">
-    <svg class="wave wave--back" viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <path d="M0,40 C 200,90 400,0 600,40 C 800,80 1000,10 1200,50 L1200,120 L0,120 Z"></path>
-    </svg>
-    <svg class="wave wave--front" viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <path d="M0,60 C 220,10 420,100 620,55 C 820,15 1000,90 1200,45 L1200,120 L0,120 Z"></path>
-    </svg>
-  </div>
-
-  <div class="footer-inner">
-    <div class="footer-col footer-brand">
-      <div class="logo">MT<span>.</span></div>
-      <p>FrontEnd Developer building fast, interactive interfaces — this whole site is one live demo, not a mockup.</p>
-    </div>
-
-    <div class="footer-col">
-      <h3>Pages</h3>
-      <button class="footer-link" type="button" data-target="track1">Home</button>
-      <button class="footer-link" type="button" data-target="track2">Projects</button>
-      <button class="footer-link" type="button" data-target="track3">Tech Stack</button>
-      <button class="footer-link" type="button" data-target="track4">Album</button>
-    </div>
-
-    <div class="footer-col">
-      <h3>Connect</h3>
-      <!-- edit these three links whenever you like -->
-      <a class="footer-link" href="https://github.com/MT-Taybii" target="_blank" rel="noopener">GitHub</a>
-      <a class="footer-link" href="https://www.linkedin.com/in/MT_Taybii" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="footer-link" href="mailto:mt.taybii@gmail.com">Email</a>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <span>© <span id="footerYear"></span> Muhammad Tayyab. All rights reserved.</span>
-  </div>
-</footer>
-
-<script src="js/jelly-background.js"></script>
-<script src="js/projects.js"></script>
-<script src="js/apps-grid.js"></script>
-<script src="js/page2-background.js"></script>
-<script src="js/page3-background.js"></script>
-<!-- <script src="js/page4-background.js"></script> -->
-<script src="js/tech-marquee.js"></script>
-<script src="js/album-photos.js"></script>
-<script src="js/album-gallery.js"></script>
-<script src="js/page-transitions.js"></script>
-<script src="js/site-nav.js"></script>
-<script src="js/server.js"></script>
-<script src="js/theme.js"></script>
-<script src="js/script.js"></script>
-<script src="js/research-profile.js"></script>
-</body>
+    <script src="js/jelly-background.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/apps-grid.js"></script>
+    <script src="js/page2-background.js"></script>
+    <script src="js/page3-background.js"></script>
+    <script src="js/page4-background.js"></script>
+    <script src="js/tech-marquee.js"></script>
+    <script src="js/album-photos.js"></script>
+    <script src="js/album-gallery.js"></script>
+    <script src="js/page-transitions.js"></script>
+    <script src="js/site-nav.js"></script>
+    <script src="js/server.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/research-profile.js"></script>
+  </body>
 </html>

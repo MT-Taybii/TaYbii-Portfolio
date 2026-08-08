@@ -37,7 +37,7 @@
       const progress = Math.min(1, Math.max(0, raw));
       const slideProgress = Math.min(1, progress / SLIDE_FRACTION);
 
-      const translateX = 0 + slideProgress * 100; // 0% -> 100%
+      const translateX = 0 + slideProgress * 100; // -100% -> 0%
       panel.style.transform = `translateX(${translateX}%)`;
     });
 

@@ -18,13 +18,6 @@
  *   2. Drop that project's logo.png inside that same folder.
  *   3. Fill in one slot below:
  *
- *      {
- *        name: 'Weather App',                              // shown under the icon, your choice
- *        logo: 'projects/weather-app/logo.png',             // 48x48-ish PNG, square
- *        url:  'projects/weather-app/index.html',           // or a deployed URL once it's live
- *        github: 'https://github.com/your-username/weather-app', // optional — adds a small GitHub icon on the box
- *      }
- *
  *   Clicking the box opens `url` in a new tab — exactly like hitting
  *   "Go Live" on that project's own server, separate from this one.
  *   Clicking the small GitHub icon (only shown if `github` is set) opens

@@ -20,7 +20,7 @@
   const stage = document.getElementById('researchStage');
   const tilt = document.getElementById('researchTilt');
 
-  /* ---------------- responsive scale-to-fit ---------------- */
+  /* responsive scale-to-fit */
   function fitStage() {
     if (!outer || !stage) return;
 
@@ -40,7 +40,7 @@
   window.addEventListener('resize', fitStage, { passive: true });
   fitStage();
 
-  /* ---------------- mouse-parallax tilt ---------------- */
+  /* mouse-parallax tilt */
   const isTouch = window.matchMedia('(hover: none)').matches;
   if (tilt && !isTouch) {
     const MAX_TILT = 14; // degrees
@@ -59,7 +59,7 @@
     });
   }
 
-  /* ---------------- reveal on scroll into view ---------------- */
+  /* reveal on scroll into view */
   if (stage && 'IntersectionObserver' in window) {
     const io = new IntersectionObserver(
       (entries) => {

@@ -38,7 +38,7 @@
     card.addEventListener('click', () => openLightbox(photo));
   });
 
-  /* ---------------- reveal on scroll into view ---------------- */
+  /* reveal on scroll into view  */
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(
       (entries) => {
@@ -53,7 +53,7 @@
     grid.classList.add('active');
   }
 
-  /* ---------------- lightbox ---------------- */
+  /* lightbox */
   function openLightbox(photo) {
     lightboxImg.src = photo.src;
     lightboxImg.alt = photo.caption || '';
