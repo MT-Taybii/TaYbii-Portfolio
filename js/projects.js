@@ -46,11 +46,12 @@ window.PORTFOLIO_PROJECTS = [
   },
   {
     name: 'Lost & Found',
-    logo: 'Assets/toolslogo Assets/Lost-&-Found.png',
+    logo: 'Assets/toolslogo Assets/Lost&Found.png',
     url:  'https://github.com/MT-Taybii/Lost-and-Found-Platform'
   },
 
   null, // box 6
   null, // box 7
   null, // box 8
+
 ];
