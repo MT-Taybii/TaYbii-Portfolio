@@ -20,7 +20,6 @@
       rel="stylesheet"
     />
 
-    <!-- Set theme before paint to avoid a flash of the wrong theme -->
     <script>
       (function () {
         var saved = localStorage.getItem("mt_theme");
@@ -32,10 +31,8 @@
         document.documentElement.setAttribute("data-theme", theme);
       })();
       (() => {
-        // Disable right-click context menu
         document.addEventListener("contextmenu", (e) => e.preventDefault());
 
-        // Block common DevTools shortcuts
         document.addEventListener("keydown", (e) => {
           // F12
           if (e.key === "F12") {
@@ -53,20 +50,17 @@
             return false;
           }
 
-          // Ctrl + U (View Source)
           if (e.ctrlKey && e.key.toLowerCase() === "u") {
             e.preventDefault();
             return false;
           }
 
-          // Ctrl + Shift + C (Inspect element)
           if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "c") {
             e.preventDefault();
             return false;
           }
         });
 
-        // Basic DevTools detection
         const threshold = 160;
 
         setInterval(() => {
@@ -137,7 +131,6 @@
     </noscript>
   </head>
   <body>
-    <!-- LOADING SCREEN -->
     <div id="loader" aria-hidden="false">
       <div class="loader-inner">
         <div class="loader-ring">
@@ -155,7 +148,6 @@
       </div>
     </div>
 
-    <!-- TRANSITION WIPE (the "pro level" animation) -->
     <div id="transition" aria-hidden="true">
       <span class="wipe-panel" style="--i: 0"></span>
       <span class="wipe-panel" style="--i: 1"></span>
@@ -163,8 +155,6 @@
       <span class="wipe-panel" style="--i: 3"></span>
       <span class="wipe-panel" style="--i: 4"></span>
     </div>
-
-    <!-- GLOBAL CHROME (stays fixed above every page) -->
     <header class="topbar" id="globalTopbar">
       <span class="topbar-glow" aria-hidden="true"></span>
 
@@ -378,12 +368,7 @@
       </div>
     </aside>
 
-    <!-- PAGE STACK -->
-    <!-- Each .page-track sets how much scroll distance a page "owns".
-     Its child .page-panel is position:sticky, so as you scroll, later
-     pages (higher in DOM order = later panels) slide over earlier ones,
-     like a stack of real paper pages. Add more .page-track blocks the
-     same way to extend this to page 3, 4, etc. -->
+    
     <div class="pages-stack" id="pagesStack">
       <!-- PAGE 1 : hero -->
       <section class="page-track" id="track1">
@@ -443,7 +428,7 @@
         </div>
       </section>
 
-      <!-- PAGE 2 : work / app launcher -->
+     
       <section class="page-track track-slide" id="track2">
         <div class="page-panel" id="page2" data-page="2">
           <canvas class="page2-bg" id="page2Bg" aria-hidden="true"></canvas>
@@ -457,7 +442,7 @@
             </p>
 
             <div class="apps-grid" id="appsGrid" role="list">
-              <!-- 8 app boxes are rendered here by js/apps-grid.js from js/projects.js -->
+              
             </div>
           </main>
         </div>
@@ -617,7 +602,7 @@
 
         <div class="footer-col">
           <h3>Connect</h3>
-          <!-- edit these three links whenever you like -->
+          
           <a
             class="footer-link"
             href="https://github.com/MT-Taybii"
